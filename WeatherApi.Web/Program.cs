@@ -3,16 +3,25 @@ using WeatherApp.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
+builder.AddRedisOutputCache("rediscache");
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddHttpClient<WeatherApiClient>(x =>
 {
-    x.BaseAddress = new Uri("https://localhost:7031");
+    x.BaseAddress = new Uri("http://weatherapi");
 });
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
+
+app.UseOutputCache();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

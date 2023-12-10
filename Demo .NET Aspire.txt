@@ -1,0 +1,14 @@
+DEMO
+
+- Create new Project WeatherApp.Aspire in the resistent project
+- Add Aspire Orchestrator Support --> the warning that pop's up means that we already have orchestration, 
+  because we hav this project --> use this apphost project the service defaults --> configure everthing by default for you 
+- The moment that we do that, we go back to the Program.cs file (WeatherApp.Aspire.AppHost) --> the weather app is add to the project 
+  so that the apphost is aware that I want --> run some WebProject --> exsist in this namespace Weather App 
+- Also in the program.cs in the WeatherApp.web is this add Service Default (builder.AddServiceDefaults();) call, which will add all the service defaults from that 
+  WeatherApp.Aspire Service Deafults Project --> in the this extension method will be called.
+- In the program.cs Weatherapp.Web plenty of differents things --> in the bottom there is app.MapDefaultEndpoint --> some endpoints needed for aspire
+  just orchestrate everything and function that is it now --> the same thing for the WeatherApi --> also reference to the API
+- (WeatherApp.Aspire.Apphost) No we make a reference to the API this help the wiring up of the Web Project being aware that the API exist.
+- We go to WeatherApp.Web refer to  this addres so this it the weatherapi. (10:06 gestopt)
+  
